@@ -1,1 +1,2 @@
 FLASK_APP=content.py
+FLASK_DEBUG=1
