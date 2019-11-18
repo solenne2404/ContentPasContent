@@ -14,6 +14,10 @@ quitter l'env virtuel :
 installer  flask (dans l'env virtuel)
     pip install flask
     pip install python-dotenv
-    
+
 lancer flask :
     flask run
+
+si ajout de module : pip freeze > requirements.txt
+
+pour les collaborateurs : pip install -r requirements.txt
