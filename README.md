@@ -11,5 +11,8 @@ activer l'env virtuel :
 quitter l'env virtuel : 
     CTRL + Z
 
-si besoin install flask (dans l'env virtuel)
+installer  flask (dans l'env virtuel)
     pip install flask
+    
+lancer flask :
+    flask run
