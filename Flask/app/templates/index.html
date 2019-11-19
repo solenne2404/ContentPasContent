@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-        <h1>Hi, {{ current_user.username }}!</h1>
-        {% for post in posts%}
-        <div><p>{{ post.author.username}} says : <b> {{ post.body }} </b></p></div>
-        {% endfor %}
+
+        <h1 class="homeTitle">Au CEFIM, semaine 42</h1>
+        <div class="allIndicator">
+                <div id="allIndicator1">blah</div>
+                <div id="allIndicator2">blih</div>
+                <div id="allIndicator3">bloh</div>
+                <div id="allIndicator4">bluh</div>
+        </div>
+        
+        <div class="weekNav">
+            <p><i class="fas fa-chevron-left"></i>      Semaine     <i class="fas fa-chevron-right"></i></p>
+        </div>
+       
 {% endblock %}
 

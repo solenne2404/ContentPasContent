@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <head>
     <meta charset="UTF-8">
@@ -19,9 +20,21 @@
         <a href="{{ url_for('index') }}">Home</a>
         {% if current_user.is_anonymous %}
         <a href="{{ url_for('login') }}">Login</a>
+=======
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Style -->
+        <link rel="stylesheet" href="../static/style.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> 
+        {% if title %}
+            <title>{{ title }} - Contents, pas contents?</title>
+>>>>>>> master
         {% else %}
         <a href="{{ url_for('logout') }}">Logout</a>
         {% endif %}
+<<<<<<< HEAD
     </nav>
     {% if current_user.is_authenticated %}
     <div class="sidenav">
@@ -84,4 +97,30 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
 
 </body>
 
+=======
+    </head>
+    <body>
+        <nav class="header_nav">
+            <h1 class="navtitle">Contents, pas contents ?</h1>
+            <a class="home" href="{{ url_for('index') }}">Home</a>
+            <a class="profil_management" href="">Gérer les profils</a>
+            {% if current_user.is_anonymous %}
+            <a class="log" href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt"></i>Se connecter</a>
+            {% else %}
+            <a class="profil" href="">Mon profil</a>
+            <a class="log" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Se déconnecter</a>
+            {% endif %}
+        </nav>
+        <section>
+           
+            {% if current_user.is_authenticated %}
+            <p class="hello">Bienvenue, {{ current_user.username }}!</p>
+            {% endif%}
+    
+            {% block content %}{% endblock %}
+        </section>
+        
+    </body>
+    <script src="https://kit.fontawesome.com/f8e927046c.js" crossorigin="anonymous"></script>
+>>>>>>> master
 </html>
