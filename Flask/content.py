@@ -1,6 +1,5 @@
 from app import app, db
 from app.models import User, Promo, FK_User_Promo
-# , Post
 
 
 @app.shell_context_processor

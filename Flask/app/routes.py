@@ -2,8 +2,12 @@ from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, Promo
 from werkzeug.urls import url_parse
+
+
+promo = Promo.query.order_by(Promo.name).all()
+
 
 
 
@@ -12,7 +16,7 @@ from werkzeug.urls import url_parse
 @login_required
 def index():
     
-    return render_template('index.html', title='Home')
+    return render_template('index.html', title='Home', Promo=promo)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -29,7 +33,7 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(url_for('index'))
-    return render_template('login.html', title='Sign In', form=form)
+    return render_template('login.html', title='Sign In', form=form, Promo=promo)
 
 @app.route('/logout')
 def logout():
@@ -48,6 +52,6 @@ def register():
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title='Register', form=form, Promo=promo)
 
 

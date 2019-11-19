@@ -49,12 +49,10 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Promo 1</a>
-                    <a href="#">Promo 2</a>
-                    <a href="#">Promo 3</a>
-                    <a href="#">Promo 4</a>
-                    <a href="#">Promo 5</a>
-                    <a href="#">Promo 6</a>
+                    {% for promoname in Promo %}
+                        <a href="#">{{ promoname.name }}</a>
+                    {% endfor %}
+
                 </div>
             </div>
             <div class="dropdown">
