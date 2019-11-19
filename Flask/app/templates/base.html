@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Style -->
         <link rel="stylesheet" href="../static/style.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> 
         {% if title %}
             <title>{{ title }} - Contents, pas contents?</title>
         {% else %}
@@ -12,13 +14,15 @@
         {% endif %}
     </head>
     <body>
-        <nav>
-            Flask-Test: 
-            <a href="{{ url_for('index') }}">Home</a>
+        <nav class="header_nav">
+            <h1 class="navtitle">Contents, pas contents ?</h1>
+            <a class="home" href="{{ url_for('index') }}">Home</a>
+            <a class="profil_management" href="">Gérer les profils</a>
             {% if current_user.is_anonymous %}
-            <a href="{{ url_for('login') }}">Login</a>
+            <a class="log" href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt"></i>Se connecter</a>
             {% else %}
-            <a href="{{ url_for('logout') }}">Logout</a>
+            <a class="profil" href="">Mon profil</a>
+            <a class="log" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Se déconnecter</a>
             {% endif %}
         </nav>
         <section>
@@ -36,4 +40,5 @@
         </section>
         
     </body>
+    <script src="https://kit.fontawesome.com/f8e927046c.js" crossorigin="anonymous"></script>
 </html>

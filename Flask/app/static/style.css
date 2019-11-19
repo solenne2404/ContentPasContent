@@ -2,22 +2,54 @@
 /*****************************************************************************************************
 NAVIGATION
 *****************************************************************************************************/
-nav {
+.header_nav {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
+    height: 70px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas: 
+    "titre home manage b b b profil log ";
     background-color: #3A454bff;
-    align-items: center;
+    
+}
+
+.header_nav a, .header_nav h1 {
+    color:#ee7800ff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    justify-self: center;
+    align-self: center;
+}
+.header_nav .navtitle{
+    margin-left: 20px;
+    grid-area: titre;
+}
+
+.header_nav .home{
+    grid-area: home;
+}
+
+.header_nav .profil_management{
+    grid-area: manage;
+}
+
+.header_nav .profil{
+    grid-area: profil;
+}
+
+.header_nav .log{
+    grid-area: log;
 }
 
 /*****************************************************************************************************
 SECTION
 *****************************************************************************************************/
 section {
-    margin-top: 50px;
+    margin-top: 70px;
     margin-left: 50px;
 }
