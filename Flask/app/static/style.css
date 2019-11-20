@@ -58,7 +58,7 @@ NAVIGATION
 SIDE BAR
 *****************************************************************************************************/
 .sidenav {
-    height: 100%;
+    height: 100vh;
     /* Full-height: remove this if you want "auto" height */
     min-width: 90px;
     width: 90px;
@@ -67,14 +67,14 @@ SIDE BAR
     /* Fixed Sidebar (stay in place on scroll) */
     z-index: 2;
     /* Stay on top */
-    top: 50px;
+    top: 0;
     /* Stay at the top */
     left: 0;
     background-color: rgb(123, 123, 123);
     /* Black */
     overflow-x: hidden;
     /* Disable horizontal scroll */
-    padding-top: 20px;
+    padding-top: 70px;
     z-index: 1;
 }
 
@@ -152,6 +152,7 @@ section {
 
 section .hello {
     grid-row: 1 / 1 ;
+    grid-column: 1 /1;
     justify-self: end;
     align-self: start;
 }
@@ -161,16 +162,18 @@ ACCUEIL ADMIN
 *****************************************************************************************************/
 
 .homeTitle {
-    grid-row: 2 / 3 ;
+    grid-row: 1 / 1 ;
+    grid-column: 1 /1;
     justify-self: center;
-    align-self: center;
+    align-self: end;
     color:#ee7800ff;
     font-size: 20px;
     font-weight: 900;
+    z-index: 2;
 }
 
 .allIndicator {
-    grid-row: 3 / 6;
+    grid-row: 2 / 6;
     justify-self: stretch;
     align-self: stretch;
     display: flex;
@@ -178,13 +181,14 @@ ACCUEIL ADMIN
     justify-content: space-around;
     align-items: center;
 }
-.allIndicator div {
+.allpromoind {
     width: 20%;
     min-width: 150px;
-    height: 70%;
+    height: 50%;
     background: lightgray;
 }
 .weekNav {
     justify-self: center;
     align-self: end;
+    grid-row: 6 / 6;
 }
