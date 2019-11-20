@@ -49,8 +49,8 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    {% for promoname in Promo %}
-                        <a href="#">{{ promoname.name }}</a>
+                    {% for promos in Promos %}
+                        <a href="{{ url_for('show_promo', name=promos.name)}}">{{ promos.name }}</a>
                     {% endfor %}
 
                 </div>

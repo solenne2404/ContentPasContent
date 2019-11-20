@@ -6,7 +6,7 @@ from app.models import User, Promo
 from werkzeug.urls import url_parse
 
 
-promo = Promo.query.order_by(Promo.name).all()
+promos = Promo.query.order_by(Promo.name).all()
 
 
 
@@ -16,7 +16,7 @@ promo = Promo.query.order_by(Promo.name).all()
 @login_required
 def index():
     
-    return render_template('index.html', title='Home', Promo=promo)
+    return render_template('index.html', title='Home', Promos=promos)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -33,7 +33,7 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(url_for('index'))
-    return render_template('login.html', title='Sign In', form=form, Promo=promo)
+    return render_template('login.html', title='Sign In', form=form, Promos=promos)
 
 @app.route('/logout')
 def logout():
@@ -52,6 +52,9 @@ def register():
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form, Promo=promo)
+    return render_template('register.html', title='Register', form=form, Promos=promos)
 
-
+@app.route('/promo/<name>')
+def show_promo(name):
+    promo = Promo.query.filter_by(name=name).first_or_404()
+    return render_template('promo.html', promo=promo, Promos=promos)
