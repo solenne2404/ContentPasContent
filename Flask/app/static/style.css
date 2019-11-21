@@ -68,7 +68,10 @@ SIDE BAR
     /* Fixed Sidebar (stay in place on scroll) */
     z-index: 2;
     /* Stay on top */
-    top: 0;
+
+
+    top: 0px;
+
     /* Stay at the top */
     left: 0;
     background-color: rgb(123, 123, 123);
@@ -192,4 +195,41 @@ ACCUEIL ADMIN
     justify-self: center;
     align-self: end;
     grid-row: 6 / 6;
+}
+
+/*****************************************************************************************************
+PROMO
+*****************************************************************************************************/
+
+.button-contain{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-q{
+    margin-top: 27%;
+    margin-bottom: 27%;
+    color:white;
+    background-color:#ee7800ff ;
+    border:none;
+    padding: 12px 20px;
+    text-align:center;
+}
+
+.btn-q:hover{
+    background-color: rgb(228, 165, 103);
+}
+
+.promo-ind{
+    width: 40%;
+    min-width: 150px;
+    height: 100%;
+    background-color:lightgray;
+    margin-right: 4%;
+}
+
+.promo-contain{
+    display: flex;
+    justify-content: center;
+    min-height:400px;
 }
