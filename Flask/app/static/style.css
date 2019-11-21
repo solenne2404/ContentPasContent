@@ -15,6 +15,7 @@ NAVIGATION
     top: 0;
     width: 100%;
     height: 8vh;
+    min-height: 40px;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-areas: 

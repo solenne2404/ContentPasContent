@@ -7,7 +7,7 @@ from werkzeug.urls import url_parse
 
 
 promos = Promo.query.order_by(Promo.name).all()
-question = [Q1, Q2, Q3, Q4, Q5, Q6]
+questions = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6']
 
 
 
@@ -58,7 +58,14 @@ def register():
 @app.route('/promo/<name>')
 def show_promo(name):
     promo = Promo.query.filter_by(name=name).first_or_404()
-    return render_template('promo.html', promo=promo, Promos=promos, Question=question)
+    return render_template('promo.html', promo=promo, Promos=promos, Questions=questions)
+
 
 @app.route('/promo/<name>/<q>')
-def show_question(name, q)
+def show_question(name, q):
+    
+    promo = Promo.query.filter_by(name=name).first_or_404()
+    if q not in questions:
+        return redirect(url_for('show_promo', name=name))
+
+    return render_template('question.html',promo=promo, Promos=promos,  Questions=questions)
