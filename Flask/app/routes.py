@@ -7,6 +7,7 @@ from werkzeug.urls import url_parse
 
 
 promos = Promo.query.order_by(Promo.name).all()
+question = [Q1, Q2, Q3, Q4, Q5, Q6]
 
 
 
@@ -57,4 +58,7 @@ def register():
 @app.route('/promo/<name>')
 def show_promo(name):
     promo = Promo.query.filter_by(name=name).first_or_404()
-    return render_template('promo.html', promo=promo, Promos=promos)
+    return render_template('promo.html', promo=promo, Promos=promos, Question=question)
+
+@app.route('/promo/<name>/<q>')
+def show_question(name, q)
