@@ -8,7 +8,7 @@ from app.configChart import URL_GGSHEET, GGSHEET_GID, GGSHEET_PROMO_RANGE
 
 
 promos = Promo.query.order_by(Promo.name).all()
-# users = User.query.order_by(User.name).all()
+users = User.query.order_by(User.id).all()  
 
 
 questions = ['1-Méthode pédagogique', '2-Progression', '3-Organisation matérielle', '4-Moyens pédagogiques', '5-Echanges dans le groupe', '6-Satisfaction']
@@ -22,7 +22,11 @@ questions = ['1-Méthode pédagogique', '2-Progression', '3-Organisation matéri
 @login_required
 def index():
     
-    return render_template('index.html', title='Home', Promos=promos)
+    return render_template(
+        'index.html', 
+        title='Home', 
+        Promos=promos)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -39,7 +43,13 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(url_for('index'))
-    return render_template('login.html', title='Sign In', form=form, Promos=promos)
+    return render_template(
+        'login.html', 
+        title='Sign In', 
+        form=form, 
+        Promos=promos
+        )
+
 
 @app.route('/logout')
 @login_required
@@ -47,9 +57,10 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    if current_user.is_authenticated:
+    if current_user.admin == False :
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -57,9 +68,15 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
+        flash('Nouvel utilisateur enregistré')
         return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form, Promos=promos)
+    return render_template(
+        'register.html', 
+        title='Register', 
+        form=form, 
+        Promos=promos
+        )
+
 
 @app.route('/promo/<name>')
 @login_required
@@ -83,10 +100,25 @@ def show_question(name, q):
     if q not in questions:
         return redirect(url_for('show_promo', name=name))
 
-    return render_template('question.html',promo=thisPromo , Promos=promos,  q=q)
+    return render_template(
+        'question.html',
+        promo=thisPromo , 
+        Promos=promos,  
+        q=q
+        )
 
-# @app.route('/gestionprofils')
-# @login_required
-# def rGestionProfils():
 
-#     return render_template('gestionProfil.html', Promos=promos)
+@app.route('/gestionprofils')
+@login_required
+def rGestionProfils():
+
+    if current_user.admin == False :
+        return redirect(url_for('index'))
+
+    fk = FK_User_Promo.query.order_by(FK_User_Promo.user_id).all()  
+    return render_template(
+        'gestionProfil.html', 
+        Promos=promos, 
+        Users=users, 
+        Fk=fk
+        )

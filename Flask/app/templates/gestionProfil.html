@@ -1,38 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Profils actifs</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=64) }}<br>
-            {% for error in form.email.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password2.label }}<br>
-            {{ form.password2(size=32) }}<br>
-            {% for error in form.password2.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.admin() }} {{ form.admin.label }} </p>
-        <p>{{ form.submit() }}</p>
-    </form>
+    <h1 class="homeTitle">Profils actifs</h1>
+
+    {% for user in Users %}
+    <div class="userlist">
+        <div class="userInfos">
+            <h3> {{ user.username }} - {{ user.email }} </h3>
+            {% if user.admin %}
+                <p> Administrateur  - accès à toutes les formations</p>
+            {% else %}
+               
+                <ul>      
+                    {% for fk in Fk %}
+                        {% if fk.user_id == user.id %}
+                            {% for promo in Promos %}
+                                {% if promo.id == fk.promo_id  %}
+
+                            <li> {{ promo.name }} </li>
+
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+            {% endif %}
+        </div>
+        {% if current_user.admin %}
+        <div class="changeProfil">
+           <p>Modifier le profil</p> 
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    {% if current_user.admin %}
+    <div>
+        <a href="{{ url_for('register') }}"><p>Créer un nouveau profil</p></a> 
+    </div>
+    {% endif %}
+    
 {% endblock %}
