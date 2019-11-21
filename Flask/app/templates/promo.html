@@ -5,7 +5,14 @@
         <h1 class="homeTitle">{{promo.name}}</h1>
         <div class="promo-contain">
         
-                <div class="promo-ind">{{promo.name}}</div>
+                <div class="promo-ind" id="promo_chart"  style="width:1200; height:900"></div>
+                <script>
+                        google.charts.setOnLoadCallback( 
+                                function() {
+                                        createChart("{{ URI | safe }}", "promo_chart");
+                                }
+                        );
+                </script>
                 
                 <div class="button-contain">
                         {% for questions in Questions %}

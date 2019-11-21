@@ -2,11 +2,14 @@ from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, Promo
+from app.models import User, Promo, FK_User_Promo
 from werkzeug.urls import url_parse
+from app.configChart import URL_GGSHEET, GGSHEET_GID, GGSHEET_PROMO_RANGE
 
 
 promos = Promo.query.order_by(Promo.name).all()
+# users = User.query.order_by(User.name).all()
+
 
 questions = ['1-Méthode pédagogique', '2-Progression', '3-Organisation matérielle', '4-Moyens pédagogiques', '5-Echanges dans le groupe', '6-Satisfaction']
 
@@ -39,6 +42,7 @@ def login():
     return render_template('login.html', title='Sign In', form=form, Promos=promos)
 
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('index'))
@@ -58,12 +62,21 @@ def register():
     return render_template('register.html', title='Register', form=form, Promos=promos)
 
 @app.route('/promo/<name>')
+@login_required
 def show_promo(name):
     thisPromo = Promo.query.filter_by(name=name).first_or_404()
-    return render_template('promo.html', promo=thisPromo, Promos=promos, Questions=questions)
+    uri = URL_GGSHEET.format(gid=GGSHEET_GID["promo"], range=GGSHEET_PROMO_RANGE[name])
+    return render_template(
+        'promo.html',
+        promo=thisPromo,
+        Promos=promos,
+        Questions=questions,
+        URI=uri
+    )
 
 
 @app.route('/promo/<name>/<q>')
+@login_required
 def show_question(name, q):
     
     thisPromo = Promo.query.filter_by(name=name).first_or_404()
@@ -71,3 +84,9 @@ def show_question(name, q):
         return redirect(url_for('show_promo', name=name))
 
     return render_template('question.html',promo=thisPromo , Promos=promos,  q=q)
+
+# @app.route('/gestionprofils')
+# @login_required
+# def rGestionProfils():
+
+#     return render_template('gestionProfil.html', Promos=promos)
