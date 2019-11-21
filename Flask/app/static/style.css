@@ -15,7 +15,7 @@ NAVIGATION
     top: 0;
     width: 100%;
     height: 8vh;
-    min-height: 40px;
+    min-height: 55px;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-areas: 
@@ -144,7 +144,7 @@ SECTION
 *****************************************************************************************************/
 section {
     margin-top: 8vh;
-    height: 90vh;
+    height: 87vh;
     margin-left: 100px;
     display: grid;
     grid-template-rows: repeat(6, 1fr);
