@@ -5,11 +5,11 @@
         <h1 class="homeTitle">{{promo.name}}</h1>
         <div class="promo-contain">
         
-                <div class="promo-ind" id="promo_chart"  style="width:1200; height:900"></div>
+                <div class="promo-ind" id="promo_chart"  style="width:800; height:500"></div>
                 <script>
                         google.charts.setOnLoadCallback( 
                                 function() {
-                                        createChart("{{ URI | safe }}", "promo_chart");
+                                        createBarChart("{{ URI | safe }}", "promo_chart");
                                 }
                         );
                 </script>

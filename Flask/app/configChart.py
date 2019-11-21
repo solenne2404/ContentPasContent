@@ -16,3 +16,30 @@ GGSHEET_PROMO_RANGE = {
     "DWWM2": "K9:P15"
 }
 
+GGSHEET_ALL_RANGE = {
+    "materiel":"B1:B2",
+    "pedago":"C1:C2",
+    "echange":"D1:D2",
+    "satisfaction":"E1:E2"
+}
+
+GGSHEET_CDA1_RANGE = {
+    "quart1":"G1:G7",
+    "quart3":"H1:H7",
+    "Moyenne":"I1:H7"
+}
+GGSHEET_CDA2_RANGE = {
+    "quart1":"G1:G7",
+    "quart3":"H1:H7",
+    "Moyenne":"I1:H7"
+}
+GGSHEET_CDA3_RANGE = {
+    "quart1":"G17",
+    "quart3":"H17",
+    "Moyenne":"I17"
+}
+GGSHEET_CDA4_RANGE = {
+    "quart1":"G17",
+    "quart3":"H17",
+    "Moyenne":"I17"
+}

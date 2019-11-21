@@ -22,8 +22,11 @@
     <body>
         <nav class="header_nav">
             <h1 class="navtitle">Contents, pas contents ?</h1>
+
             <a class="home" href="{{ url_for('index') }}">Home</a>
-            <a class="profil_management" href="">Gérer les profils</a>
+            {% if current_user.admin %}
+            <a class="profil_management" href="{{ url_for('rGestionProfils') }}">Gérer les profils</a>
+            {% endif %}
             {% if current_user.is_anonymous %}
             <a class="log" href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt"></i>Se connecter</a>
             {% else %}
