@@ -5,15 +5,12 @@
         <h1 class="homeTitle">{{promo.name}}</h1>
         <div class="promo-contain">
         
-                <div class="promo-ind">Promo 1</div>
+                <div class="promo-ind">{{promo.name}}</div>
                 
                 <div class="button-contain">
-                        <button class="btn-q">Q1<a href=""></a></button>
-                        <button class="btn-q">Q2<a href=""></a></button>
-                        <button class="btn-q">Q3<a href=""></a></button>
-                        <button class="btn-q">Q4<a href=""></a></button>
-                        <button class="btn-q">Q5<a href=""></a></button>
-                        <button class="btn-q">Q6<a href=""></a></button>
+                        {% for questions in Questions %}
+                        <a href="{{ url_for('show_question', name=promo.name, q=questions) }}"><button class="btn-q">{{ questions }}</button></a>
+                        {% endfor %}
                 </div>
         </div>
         

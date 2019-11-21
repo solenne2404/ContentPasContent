@@ -7,7 +7,9 @@ from werkzeug.urls import url_parse
 
 
 promos = Promo.query.order_by(Promo.name).all()
-questions = ['méthode pédagogique', 'progression', 'organisation matérielle', 'moyens pédagogiques', 'échanges dans le groupe', 'Satisfaction']
+
+questions = ['1-Méthode pédagogique', '2-Progression', '3-Organisation matérielle', '4-Moyens pédagogiques', '5-Echanges dans le groupe', '6-Satisfaction']
+
 
 
 
