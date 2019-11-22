@@ -196,3 +196,8 @@ while average_change == 1 :
         average_change = 0
     else :
         line_average += 1
+while end_sheet == 1:
+    if not sheet_base.row_values(2) :
+        sheet_base.delete_row(2)
+    else :
+        end_sheet = 0
