@@ -8,8 +8,8 @@ ouvrir un terminal sur le fichier flask
 activer l'env virtuel : 
     source venv/bin/activate
 
-quitter l'env virtuel : 
-    CTRL + Z
+(pour quitter l'env virtuel : 
+    CTRL + Z)
 
 installer  flask (dans l'env virtuel)
     pip install flask
@@ -17,6 +17,6 @@ installer  flask (dans l'env virtuel)
 lancer flask :
     flask run
 
-si ajout de module : pip freeze > requirements.txt
+si ajout de modules : pip freeze > requirements.txt
 
-pour les collaborateurs : pip install -r requirements.txt
+pour les collaborateurs (installe automatiquement ttes les dependances pas encore installées présentes dans requirements.txt): pip install -r requirements.txt

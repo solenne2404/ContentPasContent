@@ -69,6 +69,7 @@ def logout():
 
 
 @app.route('/register', methods=['GET', 'POST'])
+@login_required
 def register():
     if current_user.admin == False :
         return redirect(url_for('index'))
