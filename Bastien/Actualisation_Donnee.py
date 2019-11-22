@@ -142,4 +142,41 @@ while class_change < len(class_name):
     sleep(1)
     column_end += 1
 
+    #put return of the line list
+    line_display = line_number[change_display]
+    #put each list answer in a new list (list in list)
+    question_list = [Q1,Q2,Q3,Q4,Q5,Q6]
+    for row in question_list:
+        #put return of the column list
+        column_display = column[change_display]
+        result = []
+        average_display = []
+        #increment variable
+        inc = 1
+        for elem in row :
+            sheet_table[6].update_cell(line_display,column_display,elem)
+            sleep(1)
+            #while loop
+            out = 0
+            while out != elem :
+                result.append(inc)
+                out +=1
+            inc += 1
+            column_display += 1
+        average_display = round(statistics.mean(result),1)
+        quart = statistics.quantiles(result)
+        sheet_clean_quartile.update_cell(line_quantile[nbr_line_quant],col_quantile[nbr_col_quant],round(quart[0], 1))
+        sleep(1)
+        nbr_col_quant += 1
+        sheet_clean_quartile.update_cell(line_quantile[nbr_line_quant],col_quantile[nbr_col_quant],round(quart[2], 1))
+        sleep(1)
+        nbr_col_quant += 1
+        sheet_clean_quartile.update_cell(line_quantile[nbr_line_quant],col_quantile[nbr_col_quant],average_display)
+        sleep(1)
+        line_display += 1
+        nbr_col_quant += 1
+        nbr_line_quant += 1
+        if nbr_col_quant == 36 :
+            nbr_col_quant = 0
+    change_display += 1
     class_change += 1
