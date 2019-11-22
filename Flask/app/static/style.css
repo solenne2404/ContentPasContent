@@ -252,7 +252,7 @@ GESTION PROFILS
 
 .userlist {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background: #f4f4f4 none repeat scroll 0 0;
     border-color: #EEE #EEE #EEE #ee7800;
@@ -260,6 +260,7 @@ GESTION PROFILS
     border-width: 1px 1px 1px 3px;
     font-size: 0.9rem;
     line-height: 1.2rem;
+    padding: 0px 60px  0px 60px  ;
 }
 .userInfos{
     color: #666;

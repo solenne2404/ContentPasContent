@@ -111,10 +111,11 @@ def show_question(name, q):
 @app.route('/gestionprofils')
 @login_required
 def rGestionProfils():
-
+    db.session.commit()
     if current_user.admin == False :
         return redirect(url_for('index'))
 
+    
     fk = FK_User_Promo.query.order_by(FK_User_Promo.user_id).all()  
     return render_template(
         'gestionProfil.html', 
