@@ -1,6 +1,6 @@
 google.charts.load('current', {'packages':['corechart']});
 
-function createChart(uri, div_id) {
+function createBarChart(uri, div_id) {
     var query = new google.visualization.Query(uri);
     
     function handleQueryResponse(response) {

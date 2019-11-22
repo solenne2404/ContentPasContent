@@ -4,8 +4,35 @@
 
         <h1 class="homeTitle">{{promo.name}} - {{q}}</h1>
         
+        <div class="indicator" id="moyenne">
+            <h3 class="indicatortitle">Moyenne Podérée</h3>
+            <div class="indicatorChart" id="moyenneChart">
+                <script>
+                    google.chart.SetOnLoadCallback(
+                        function() {
+                            createPieChart("{{ URI | safe  }}", "moyenne_chart");
+                        }
+                    );
+                </script>
+            </div>
+        </div>
+        <div class="indicator" id="quart1">
+            <h3 class="indicatortitle">Moyenne des 25% de notes les plus basses</h3>
+        </div>
+        <div class="indicator" id="quart3">
+            <h3 class="indicatortitle">Moyenne des 25% de notes les plus hautes </h3>
+        </div>
+        
         <div class="questionNav">
-            <p>     Question suivante     <i class="fas fa-chevron-right"></i></p>
+            <p><i class="fas fa-chevron-left"></i>       Question    <i class="fas fa-chevron-right"></i></p>
         </div>
        
 {% endblock %}
+<!-- <div class="promo-ind" id="promo_chart"  style="width:800; height:500"></div>
+                <script>
+                        google.charts.setOnLoadCallback( 
+                                function() {
+                                        createBarChart("{{ URI | safe }}", "promo_chart");
+                                }
+                        );
+                </script> -->
