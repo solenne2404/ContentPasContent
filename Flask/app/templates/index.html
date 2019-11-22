@@ -1,13 +1,60 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!-- URIMAT=urimat,
+        URIPEDA=uripeda,
+        URIECH=uriech,
+        URISAT=urisat -->
         <h1 class="homeTitle">Au CEFIM, semaine 42</h1>
         <div class="allIndicator">
-                <div class="allpromoind" id="allIndicator1">blah</div>
-                <div class="allpromoind" id="allIndicator2">blih</div>
-                <div class="allpromoind" id="allIndicator3">bloh</div>
-                <div class="allpromoind" id="allIndicator4">bluh</div>
+                <div class="allpromoind" id="allIndicator1">
+                        <h3 class="allpromoindicatortitle">Moyens matériels</h3>
+                        <div class="allpromoindicatorChart" id="materielChart">
+                                <script>
+                                google.charts.setOnLoadCallback(
+                                        function() {
+                                        createPieChart("{{ URIMAT | safe  }}", "materielChart");
+                                        }
+                                );
+                                </script>
+                        </div>
+                </div>
+                <div class="allpromoind" id="allIndicator2">
+                        <h3 class="allpromoindicatortitle">Moyens Pédagogique</h3>
+                        <div class="allpromoindicatorChart" id="pedagoChart">
+                                <script>
+                                google.charts.setOnLoadCallback(
+                                        function() {
+                                        createPieChart("{{ URIPEDA | safe  }}", "pedagoChart");
+                                        }
+                                );
+                                </script>
+                        </div>
+                </div>
+                <div class="allpromoind" id="allIndicator3">
+                        <h3 class="allpromoindicatortitle">Echanges</h3>
+                        <div class="allpromoindicatorChart" id="echangesChart">
+                                <script>
+                                google.charts.setOnLoadCallback(
+                                        function() {
+                                        createPieChart("{{ URIECH | safe  }}", "echangesChart");
+                                        }
+                                );
+                                </script>
+                        </div>
+                </div>
+                <div class="allpromoind" id="allIndicator4">
+                        <h3 class="allpromoindicatortitle">Satisfaction</h3>
+                        <div class="allpromoindicatorChart" id="satisfactionChart">
+                                <script>
+                                google.charts.setOnLoadCallback(
+                                        function() {
+                                        createPieChart("{{ URISAT | safe  }}", "satisfactionChart");
+                                        }
+                                );
+                                </script>
+                        </div>
+        </div>
         </div>
         
         <div class="weekNav">

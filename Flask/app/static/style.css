@@ -180,23 +180,27 @@ ACCUEIL ADMIN
     grid-row: 2 / 6;
     justify-self: stretch;
     align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
 }
 .allpromoind {
-    width: 20%;
-    min-width: 150px;
-    height: 50%;
-    background: lightgray;
+    display:grid;
+    grid-template-rows: 20% auto;    
+    grid-gap: 5px;
+    justify-content: stretch;
 }
 .weekNav {
     justify-self: center;
     align-self: end;
     grid-row: 6 / 6;
 }
-
+.allpromoindicatortitle {
+    font-size: 1em;
+    text-align: center;
+    justify-self: center;
+    align-self: end;
+}
 /*****************************************************************************************************
 PROMO
 *****************************************************************************************************/

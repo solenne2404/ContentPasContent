@@ -4,7 +4,7 @@ from app.forms import LoginForm, RegistrationForm, PasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Promo, FK_User_Promo
 from werkzeug.urls import url_parse
-from app.configChart import URL_GGSHEET, GGSHEET_GID, GGSHEET_PROMO_RANGE, GGSHEET_QUART1_RANGE, GGSHEET_QUART3_RANGE, GGSHEET_MOYENNE_RANGE
+from app.configChart import URL_GGSHEET, GGSHEET_GID, GGSHEET_PROMO_RANGE, GGSHEET_QUART1_RANGE, GGSHEET_QUART3_RANGE, GGSHEET_MOYENNE_RANGE, GGSHEET_ALL_RANGE
 
 
 promos = Promo.query.order_by(Promo.name).all()
@@ -22,11 +22,18 @@ questions = ['1-Méthode pédagogique', '2-Progression', '3-Organisation matéri
 @app.route('/index')
 @login_required
 def index():
-    
+    urimat = URL_GGSHEET.format(gid=GGSHEET_GID["global"], range=GGSHEET_ALL_RANGE["materiel"])
+    uripeda = URL_GGSHEET.format(gid=GGSHEET_GID["global"], range=GGSHEET_ALL_RANGE["pedago"])
+    uriech = URL_GGSHEET.format(gid=GGSHEET_GID["global"], range=GGSHEET_ALL_RANGE["echange"])
+    urisat = URL_GGSHEET.format(gid=GGSHEET_GID["global"], range=GGSHEET_ALL_RANGE["satisfaction"])
     return render_template(
         'index.html', 
         title='Home', 
-        Promos=promos)
+        Promos=promos,
+        URIMAT=urimat,
+        URIPEDA=uripeda,
+        URIECH=uriech,
+        URISAT=urisat)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -56,7 +63,9 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+   
+    return redirect(
+        url_for('index'))
 
 
 @app.route('/register', methods=['GET', 'POST'])

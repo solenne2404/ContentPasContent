@@ -18,10 +18,10 @@ GGSHEET_PROMO_RANGE = {
 }
 
 GGSHEET_ALL_RANGE = {
-    "materiel":"B1:B2",
-    "pedago":"C1:C2",
-    "echange":"D1:D2",
-    "satisfaction":"E1:E2"
+    "materiel":"A1:B2",
+    "pedago":"C1:D2",
+    "echange":"E1:F2",
+    "satisfaction":"G1:H2"
 }
 
 GGSHEET_QUART1_RANGE = {
