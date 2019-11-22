@@ -143,6 +143,8 @@ def profil_edit():
 @app.route('/gestionprofils')
 @login_required
 def rGestionProfils():
+    if current_user.admin == False :
+        return redirect(url_for('index'))
     db.session.commit()
     if current_user.admin == False :
         return redirect(url_for('index'))
