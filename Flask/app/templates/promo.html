@@ -5,7 +5,7 @@
         <h1 class="homeTitle">{{promo.name}}</h1>
         <div class="promo-contain">
         
-                <div class="promo-ind" id="promo_chart"  style="width:800; height:500"></div>
+                <div class="promo-ind" id="promo_chart" >
                 <script>
                         google.charts.setOnLoadCallback( 
                                 function() {
@@ -13,6 +13,7 @@
                                 }
                         );
                 </script>
+                </div>
                 
                 <div class="button-contain">
                         {% for questions in Questions %}

@@ -4,7 +4,7 @@ from app.forms import LoginForm, RegistrationForm, PasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Promo, FK_User_Promo
 from werkzeug.urls import url_parse
-from app.configChart import URL_GGSHEET, GGSHEET_GID, GGSHEET_PROMO_RANGE
+from app.configChart import URL_GGSHEET, GGSHEET_GID, GGSHEET_PROMO_RANGE, GGSHEET_QUART1_RANGE, GGSHEET_QUART3_RANGE, GGSHEET_MOYENNE_RANGE
 
 
 promos = Promo.query.order_by(Promo.name).all()
@@ -98,6 +98,11 @@ def show_promo(name):
 def show_question(name, q):
     
     thisPromo = Promo.query.filter_by(name=name).first_or_404()
+ 
+
+    urimoyenne = URL_GGSHEET.format(gid=GGSHEET_GID["promoind"], range=GGSHEET_MOYENNE_RANGE[name][q])
+    uriquart1 = URL_GGSHEET.format(gid=GGSHEET_GID["promoind"], range=GGSHEET_QUART1_RANGE[name][q])
+    uriquart3 = URL_GGSHEET.format(gid=GGSHEET_GID["promoind"], range=GGSHEET_QUART3_RANGE[name][q])
     if q not in questions:
         return redirect(url_for('show_promo', name=name))
 
@@ -105,7 +110,10 @@ def show_question(name, q):
         'question.html',
         promo=thisPromo , 
         Promos=promos,  
-        q=q
+        q=q,
+        URIMOYENNE=urimoyenne,
+        URIQUART1=uriquart1,
+        URIQUART3=uriquart3
         )
 
 

@@ -24,46 +24,118 @@ GGSHEET_ALL_RANGE = {
     "satisfaction":"E1:E2"
 }
 
-GGSHEET_CDA1_RANGE = {
-    "Q1quart1":"A1:B2",
-    "Q1quart3":"C1:D2",
-    "Q1Moyenne":"E1:F2",
-    "Q2quart1":"A3:B4",
-    "Q2quart3":"C3:D4",
-    "Q2Moyenne":"E3:F4",
-    "Q3quart1":"A5:B6",
-    "Q3quart3":"C5:D6",
-    "Q3Moyenne":"E5:F6",
-    "Q4quart1":"A7:B8",
-    "Q4quart3":"C7:D8",
-    "Q4Moyenne":"E7:F8",
-    "Q5quart1":"A9:B10",
-    "Q5quart3":"C9:D10",
-    "Q5Moyenne":"E9:F10",
-    "Q6quart1":"A11:B12",
-    "Q6quart3":"C11:D12",
-    "Q6Moyenne":"E11:F12",
+GGSHEET_QUART1_RANGE = {
+    "CDA1": {
+        "1-Méthode pédagogique":"A1:B2",
+        "2-Progression":"A3:B4",
+        "3-Organisation matérielle":"A5:B6",
+        "4-Moyens pédagogiques":"A7:B8",
+        "5-Echanges dans le groupe":"A9:B10",
+        "6-Satisfaction":"A11:B12"
+    },
+    "CDA2": {
+        "1-Méthode pédagogique":"H1:I2",
+        "2-Progression":"H3:I4",
+        "3-Organisation matérielle":"H5:I6",
+        "4-Moyens pédagogiques":"H7:I8",
+        "5-Echanges dans le groupe":"H9:I10",
+        "6-Satisfaction":"H11:I12"
+    }
 }
-GGSHEET_CDA2_RANGE = {
-    "Q1quart1":"H1:I2",
-    "Q1quart3":"J1:K2",
-    "Q1Moyenne":"L1:M2",
-    "Q2quart1":"H3:I4",
-    "Q2quart3":"J3:K4",
-    "Q2Moyenne":"L3:M4",
-    "Q3quart1":"H5:I6",
-    "Q3quart3":"J5:K6",
-    "Q3Moyenne":"L5:M6",
-    "Q4quart1":"H7:I8",
-    "Q4quart3":"J7:K8",
-    "Q4Moyenne":"L7:M8",
-    "Q5quart1":"H9:I10",
-    "Q5quart3":"J9:K10",
-    "Q5Moyenne":"L9:M10",
-    "Q6quart1":"H11:I12",
-    "Q6quart3":"J11:K12",
-    "Q6Moyenne":"L11:M12",
+
+GGSHEET_QUART3_RANGE = {
+    "CDA1": {
+        "1-Méthode pédagogique": "C1:D2",
+        "2-Progression":"C3:D4",
+        "3-Organisation matérielle":"C5:D6",
+        "4-Moyens pédagogiques":"C7:D8",
+        "5-Echanges dans le groupe":"C9:D10",
+        "6-Satisfaction":"C11:D12",
+    },
+    "CDA2": {
+        "1-Méthode pédagogique":"J1:K2",
+        "2-Progression":"J3:K4",
+        "3-Organisation matérielle":"J5:K6",
+        "4-Moyens pédagogiques":"J7:K8",
+        "5-Echanges dans le groupe":"L9:M10",
+        "6-Satisfaction":"J11:K12"
+    }
 }
+GGSHEET_MOYENNE_RANGE = {
+    "CDA1": {
+        "1-Méthode pédagogique":"E1:F2",
+        "2-Progression":"E3:F4",
+        "3-Organisation matérielle":"E5:F6",
+        "4-Moyens pédagogiques":"A7:B8",
+        "Q4quart3":"E7:F8",
+        "5-Echanges dans le groupe":"E9:F10",
+        "6-Satisfaction":"E11:F12"
+    },
+    "CDA2": {
+        "1-Méthode pédagogique":"L1:M2",
+        "2-Progression":"L3:M4",
+        "3-Organisation matérielle":"L5:M6",
+        "4-Moyens pédagogiques":"L7:M8",
+        "5-Echanges dans le groupe":"L9:M10",
+        "6-Satisfaction":"L11:M12"
+    }
+}
+
+# GGSHEET_CDA1_QUART1_RANGE = {
+#     "1-Méthode pédagogique":"A1:B2",
+#     "2-Progression":"A3:B4",
+#     "3-Organisation matérielle":"A5:B6",
+#     "4-Moyens pédagogiques":"A7:B8",
+#     "5-Echanges dans le groupe":"A9:B10",
+#     "6-Satisfaction":"A11:B12"
+# }
+# GGSHEET_CDA1_QUART3_RANGE = {
+#     "1-Méthode pédagogique": "C1:D2",
+#     "2-Progression":"C3:D4",
+#     "3-Organisation matérielle":"C5:D6",
+#     "4-Moyens pédagogiques":"C7:D8",
+#     "5-Echanges dans le groupe":"C9:D10",
+#     "6-Satisfaction":"C11:D12",
+# }
+
+# GGSHEET_CDA1_MOYENNE_RANGE = {
+#     "1-Méthode pédagogique":"E1:F2",
+#     "2-Progression":"E3:F4",
+#     "3-Organisation matérielle":"E5:F6",
+#     "4-Moyens pédagogiques":"A7:B8",
+#     "Q4quart3":"E7:F8",
+#     "5-Echanges dans le groupe":"E9:F10",
+#     "6-Satisfaction":"E11:F12"
+# }
+
+# GGSHEET_CDA2_QUART1_RANGE = {
+#     "1-Méthode pédagogique":"H1:I2",
+#     "2-Progression":"H3:I4",
+#     "3-Organisation matérielle":"H5:I6",
+#     "4-Moyens pédagogiques":"H7:I8",
+#     "5-Echanges dans le groupe":"H9:I10",
+#     "6-Satisfaction":"H11:I12"
+# }
+
+# GGSHEET_CDA2_QUART3_RANGE = {
+#     "1-Méthode pédagogique":"J1:K2",
+#     "2-Progression":"J3:K4",
+#     "3-Organisation matérielle":"J5:K6",
+#     "4-Moyens pédagogiques":"J7:K8",
+#     "5-Echanges dans le groupe":"L9:M10",
+#     "6-Satisfaction":"J11:K12"
+# }
+
+# GGSHEET_CDA2_MOYENNE_RANGE = {
+#     "1-Méthode pédagogique":"L1:M2",
+#     "2-Progression":"L3:M4",
+#     "3-Organisation matérielle":"L5:M6",
+#     "4-Moyens pédagogiques":"L7:M8",
+#     "5-Echanges dans le groupe":"L9:M10",
+#     "6-Satisfaction":"L11:M12"
+# }
+
+
 GGSHEET_CDA3_RANGE = {
     "Q1quart1":"A14:B15",
     "Q1quart3":"C14:D15",

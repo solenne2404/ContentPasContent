@@ -31,7 +31,7 @@ function createPieChart(uri, div_id) {
             pieSliceText: 'value',
             pieSliceTextStyle: {
                 color: '#EE7800',
-                fontSize: 100.0,   // gere la taille du texte au centre
+                fontSize: 50.0,   // gere la taille du texte au centre
             },
         };
             
