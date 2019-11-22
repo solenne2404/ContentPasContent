@@ -41,3 +41,11 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Un compte existe déjà pour cette adresse')
+
+
+class PasswordForm(FlaskForm):
+    password = PasswordField('Nouveau mot de passe', validators=[DataRequired()])
+    password2 = PasswordField(
+        'Répéter le mot de passe', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Modifier')
+

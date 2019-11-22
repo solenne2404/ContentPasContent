@@ -30,7 +30,7 @@
             {% if current_user.is_anonymous %}
             <a class="log" href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt"></i>Se connecter</a>
             {% else %}
-            <a class="profil" href="">Mon profil</a>
+            <a class="profil" href="{{ url_for('profil_edit')}}">Mon profil</a>
             <a class="log" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Se déconnecter</a>
             {% endif %}
         </nav>

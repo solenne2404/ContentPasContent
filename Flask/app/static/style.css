@@ -226,14 +226,20 @@ PROMO
 .promo-ind {
     min-width:900px;
     margin-top:1%;
+<<<<<<< Updated upstream
     height: 500px;
     background-color:lightgray;
+=======
+    height: 100%;
+    
+    margin-right: 4%;
+>>>>>>> Stashed changes
 }
 
 .promo-contain {
     display: flex;
     justify-content: center;
-    min-height:400px;
+    
 }
 
 /*****************************************************************************************************
@@ -244,6 +250,7 @@ QUESTION
     align-self: end;
     grid-row: 6 / 6;
 }
+
 
 
 /*****************************************************************************************************
@@ -276,3 +283,11 @@ GESTION PROFILS
     display: flex;
     align-items: center;
 }
+
+/*****************************************************************************************************
+PROFIL
+*****************************************************************************************************/
+.change-pwd{
+    margin-left: 50%;
+}
+

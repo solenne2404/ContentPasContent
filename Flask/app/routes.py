@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, PasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Promo, FK_User_Promo
 from werkzeug.urls import url_parse
@@ -12,6 +12,7 @@ users = User.query.order_by(User.id).all()
 
 
 questions = ['1-Méthode pédagogique', '2-Progression', '3-Organisation matérielle', '4-Moyens pédagogiques', '5-Echanges dans le groupe', '6-Satisfaction']
+
 
 
 
@@ -107,6 +108,19 @@ def show_question(name, q):
         q=q
         )
 
+
+@app.route('/profil', methods=['GET', 'POST'])
+@login_required
+def profil_edit():
+    form = PasswordForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(id=current_user.id).first()
+        user.set_password(form.password.data)
+        db.session.bulk_save_objects([user])
+        db.session.commit()
+        flash('Votre mot de passe a bien été modifié!')
+        return redirect(url_for('index'))
+    return render_template('profil.html', form=form)
 
 @app.route('/gestionprofils')
 @login_required

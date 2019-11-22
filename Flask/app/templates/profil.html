@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="change_pwd"></div>
+    <h1 class="profil_title">Modifier le profil de {{current_user.username}}</h1>
+    <form action="" method="POST">
+        
+        {{ form.hidden_tag() }}
+    <p>
+        
+        <p class="profil_info">Email de l'utilisateur: {{current_user.email}}</p>
+        <hr>
+        <strong><p class="profil_info">Changer de mot de passe:</p></strong>
+
+        {{ form.password.label }}<br>
+        {{ form.password(size=32) }}<br>
+        {% for error in form.password.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.password2.label }}<br>
+        {{ form.password2(size=32) }}<br>
+        {% for error in form.password2.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    
+    <p>{{ form.submit() }}</p>
+</form>
+    
+{% endblock %}
