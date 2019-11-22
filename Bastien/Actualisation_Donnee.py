@@ -117,7 +117,29 @@ while class_change < len(class_name):
                     sleep(1)
                     y += 1
                     column_writing += 1
+                Q1_answer = line["Q1"]
+                Q2_answer = line["Q2"]
+                Q3_answer = line["Q3"]
+                Q4_answer = line["Q4"]
+                Q5_answer = line["Q5"]
+                Q6_answer = line["Q6"]
+                Q1[Q1_answer-1] += 1
+                Q2[Q2_answer-1] += 1
+                Q3[Q3_answer-1] += 1
+                Q4[Q4_answer-1] += 1
+                Q5[Q5_answer-1] += 1
+                Q6[Q6_answer-1] += 1
+
                 line_check += 1
             else :
                 line_check += 1
+        average_qu3.append(int(line["Q3"]))
+        average_qu4.append(int(line["Q4"]))
+        average_qu5.append(int(line["Q5"]))
+        average_qu6.append(int(line["Q6"]))
+    sleep(5)
+    sheet_table[5].update_cell(2,column_end,line_check-1)
+    sleep(1)
+    column_end += 1
+
     class_change += 1
