@@ -180,3 +180,19 @@ while class_change < len(class_name):
             nbr_col_quant = 0
     change_display += 1
     class_change += 1
+average = [statistics.mean(average_qu3), statistics.mean(average_qu4), statistics.mean(average_qu5), statistics.mean(average_qu6)]
+while average_change == 1 :
+    if not sheet_table[4].row_values(line_average) :
+        sleep(1)
+        col_glo = 1
+        while col_glo<8:
+            sheet_table[4].update_cell(line_average,col_glo, "Moyenne")
+            sleep(1)
+            col_glo += 1
+            sheet_table[4].update_cell(line_average,col_glo, average[data_average_list])
+            sleep(1)
+            data_average_list += 1
+            col_glo += 1
+        average_change = 0
+    else :
+        line_average += 1
