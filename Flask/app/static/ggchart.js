@@ -6,11 +6,11 @@ function createBarChart(uri, div_id) {
     function handleQueryResponse(response) {
         var data = response.getDataTable();
         var option = {
-                animation:{ duration: 1000, easing: 'out'},
-                colors: ['red','orange','yellow','#0099C6','#139886'],
-                legend: {position: 'top'},
-                isStacked: true,
-            };
+            animation:{ duration: 1000, easing: 'out'},
+            colors: ['#f83606','#f8af06','#efda00','#8def00','#15ef00'],
+            legend: {position: 'top'},
+            isStacked: true,
+        };
             
         var chart = new google.visualization.BarChart(document.getElementById(div_id));
         chart.draw(data, option);
